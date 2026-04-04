@@ -6,7 +6,12 @@ public class EnemyX : MonoBehaviour
 {
     public float speed;
     private Rigidbody enemyRb;
-    private GameObject playerGoal;
+    public GameObject playerGoal;
+
+    void Awake()
+    {
+        playerGoal = GameObject.FindGameObjectWithTag("Player Goal");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +34,7 @@ public class EnemyX : MonoBehaviour
         if (other.gameObject.name == "Enemy Goal")
         {
             Destroy(gameObject);
-        } 
+        }
         else if (other.gameObject.name == "Player Goal")
         {
             Destroy(gameObject);
